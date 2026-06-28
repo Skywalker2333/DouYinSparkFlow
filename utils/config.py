@@ -85,7 +85,7 @@ def get_userData():
         if not unique_id:
             logger.warning(f"{username} 的任务  缺少 unique_id 字段，已跳过")
             continue
-        cookies_key = f"cookies_{unique_id}".upper()
+        cookies_key = f"cookies_{unique_id}".upper().replace(".", "_").replace("-", "_")
         cookies_str = (
             os.getenv(cookies_key, "").encode("utf-8").decode("unicode_escape")
         )
